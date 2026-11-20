@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AgroConecta Pamplona – Prototipo alta fidelidad</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>AgroConecta Pamplona</h1>
+      <p id="who">Del campo a tu mesa, sin intermediarios</p>
+    </header>
+
+    <main>
+      <!-- HU1 y HU2: registro e inicio de sesión -->
+      <section id="auth" class="on">
+        <div class="card">
+          <div class="row">
+            <button class="btn g s" onclick="modo(1)">Ingresar</button>
+            <button class="btn g s" onclick="modo(0)">Registrarme</button>
+          </div>
+          <div id="fn"><label>Nombre completo</label><input id="an"></div>
+          <label>Correo electrónico</label><input id="ac" type="email">
+          <label>Contraseña</label><input id="ap" type="password">
+          <div id="fr">
+            <label>Soy</label>
+            <select id="ar"><option value="p">Productor</option><option value="c">Comprador</option></select>
+          </div>
+          <button class="btn" id="ab" onclick="entrar()"></button>
+          <p class="err" id="ae"></p>
+        </div>
+      </section>
+
+      <!-- HU3: publicar producto -->
+      <section id="publicar">
+        <div class="card">
+          <b>Publicar producto</b>
+          <label>Foto del producto (ilustrativa)</label>
+          <div class="pick" id="pk"></div>
+          <label>Nombre del producto</label><input id="pn">
+          <label>Categoría</label>
+          <select id="pc"><option>Verduras</option><option>Frutas</option><option>Tubérculos</option><option>Lácteos</option></select>
+          <label>Precio por unidad (COP)</label><input id="pq" type="number">
+          <label>Cantidad disponible</label><input id="pd" type="number">
+          <label>Descripción corta</label><input id="pe">
+          <button class="btn" onclick="publicar()">Guardar en el catálogo</button>
+          <p class="err" id="pm"></p>
+        </div>
+      </section>
+
+      <!-- HU4 y HU5: catálogo y búsqueda -->
+      <section id="catalogo">
+        <input id="bq" placeholder="Buscar producto o productor" oninput="lista()">
+        <div class="chips" id="chips"></div>
+        <div class="grid" id="lista"></div>
+      </section>
+
+      <!-- HU6: carrito y pedido -->
+      <section id="carrito"><div id="cv"></div></section>
+
+      <!-- HU7: historial del comprador -->
+      <section id="historial"><div id="hv"></div></section>
+
+      <!-- HU8: bandeja de pedidos del productor -->
+      <section id="bandeja"><div id="bv"></div></section>
+    </main>
+
+    <nav id="nav"></nav>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+</html>
